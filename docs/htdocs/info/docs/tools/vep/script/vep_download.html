@@ -1073,24 +1073,24 @@ tar xzf homo_sapiens_vep_[[SPECIESDEFS::ENSEMBL_VERSION]]_GRCh38.tar.gz</pre>
 </ol>
   <hr/>
   <h2 id="singularity">Singularity</h2>
-  <p>Singularity is a container platform, commonly used to run containers on HPC clusters. Crucially, you generally 
+  <p>Singularity is a container platform that is commonly used to run containers on HPC clusters. Crucially, you generally 
     do not need administrative privileges in order to use Singularity containers.</p>
   <p>
     Using VEP with Singularity is possible with the <a href="#docker">VEP Docker image</a>.
   </p>
-  <p>You can download and run VEP through Singularity with the following commands: </p>
+  <p>You can download and run VEP with Singularity 3.5+ with the following commands: </p>
   <pre class="code sh_sh">singularity pull --name vep.img docker://ensemblorg/ensembl-vep
-    singularity exec vep.img ./vep </pre>
+singularity exec vep.img ./vep </pre>
     
     <p>If you would like to setup a directory on your host machine for VEP to use as a cache directory:</p>
     <pre class="code sh_sh"># Create a directory on your machine:
-  mkdir $HOME/vep_data
+mkdir $HOME/vep_data
 
-  # Make sure that the created directory on your machine has read and write access granted
-  # so the docker container can write in the directory (VEP output):
-  chmod a+rwx $HOME/vep_data    
+# Make sure that the created directory on your machine has read and write access granted
+# so the docker container can write in the directory (VEP output):
+chmod a+rwx $HOME/vep_data    
 
-  singularity shell -B $HOME/.vep:/opt/vep/.vep ./vep</pre>
+singularity shell -B $HOME/.vep:/opt/vep/.vep ./vep</pre>
   </div>
 </div>
 
